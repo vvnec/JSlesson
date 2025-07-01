@@ -21,14 +21,18 @@ taskInput.value = '';
 function updTask(el){
     let txt = el.innerHTML
     if(document.getElementById('updInp')) return
-    el.innerHTML = `<input id="updInp" value="${txt}" onblur="focusOff()">`
+    el.innerHTML = `<input id="updInp" value="${txt}" onblur="focusOff(this.parentElement)">`
     let updInp = document.getElementById('updInp')
     updInp.focus()
+
+
+
+
+
 }
-function focusOff(){
+function focusOff(el){
      txt = updInp.value
         updInp.remove()
-        console.log(txt)
-        document.getElementById('task').innerHTML = txt
+        el.innerHTML = txt
 }
 
